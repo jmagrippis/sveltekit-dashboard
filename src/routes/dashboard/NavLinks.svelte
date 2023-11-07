@@ -27,12 +27,12 @@
 	{#each links as { label, href, icon }}
 		<a
 			aria-label={label}
-			class="flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-sky-100 hover:text-primary-600 md:flex-none md:justify-start md:p-2 md:px-3 bg-gray-50 text-black"
+			class="flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-sky-100 hover:text-primary-600 md:flex-none md:justify-start md:p-2 md:px-3 no-underline bg-gray-50 text-black"
 			class:active={$page.url.pathname === href}
 			{href}
 		>
 			<svelte:component this={icon} />
-			<p class="hidden md:block">label</p></a
+			<p class="hidden md:block">{label}</p></a
 		>
 	{/each}
 	<div class="hidden h-auto w-full grow rounded-md bg-gray-50 md:block"></div>

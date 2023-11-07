@@ -3,6 +3,11 @@
 declare global {
 	declare module '*&img'
 
+	// fresh API just dropped, let's extend Document
+	interface Document {
+		startViewTransition?(callback: () => Promise<void>): void
+	}
+
 	namespace App {
 		// interface Error {}
 		// interface Locals {}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {Globe} from 'lucide-svelte'
+
 	import NavLinks from './NavLinks.svelte'
 </script>
 
@@ -18,3 +19,9 @@
 	>
 	<NavLinks />
 </nav>
+
+<style>
+	nav {
+		view-transition-name: nav;
+	}
+</style>
