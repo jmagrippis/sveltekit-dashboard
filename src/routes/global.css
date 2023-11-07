@@ -4,6 +4,10 @@
 	a {
 		@apply text-primary-500 underline;
 	}
+
+	strong {
+		@apply font-bold;
+	}
 }
 
 @tailwind components;
