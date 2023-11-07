@@ -1,4 +1,10 @@
-html {
-	color: #ffffff;
-	background-color: black;
+@tailwind base;
+
+@layer base {
+	a {
+		@apply text-primary-500 underline;
+	}
 }
+
+@tailwind components;
+@tailwind utilities;
