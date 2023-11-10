@@ -1,41 +1,46 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
-
-model User {
-  id       String @id @default(uuid())
-  email    String @unique
-  name     String
-  password String
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Customer {
-  id        String    @id @default(uuid())
-  email     String    @unique
-  name      String
-  image_url String
+  id        String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name      String    @db.VarChar(255)
+  email     String    @db.VarChar(255)
+  image_url String    @db.VarChar(255)
   invoices  Invoice[]
+
+  @@map("customers")
 }
 
 model Invoice {
-  id         String   @id @default(uuid())
-  amount     Int
-  status     String
-  date       DateTime @default(now()) @db.Date
-  customer   Customer @relation(fields: [customerId], references: [id])
-  customerId String
+  id          String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  customer_id String   @db.Uuid
+  customer    Customer @relation(fields: [customer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  amount      Int
+  status      String   @db.VarChar(255)
+  date        DateTime @default(now()) @db.Date
+
+  @@map("invoices")
 }
 
 model Revenue {
-  id      String @id @default(uuid())
-  month   String
+  month   String @unique @db.VarChar(4)
   revenue Int
+
+  @@map("revenue")
+}
+
+model User {
+  id       String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  name     String @db.VarChar(255)
+  email    String @unique
+  password String
+
+  @@map("users")
 }

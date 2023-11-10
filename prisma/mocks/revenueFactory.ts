@@ -5,7 +5,7 @@ export const revenueFactory = (n: number) =>
 		const date = new Date()
 		date.setMonth(date.getMonth() - i)
 		return {
-			month: date.toLocaleString('default', {month: 'long'}),
+			month: date.toLocaleString('default', {month: 'short'}),
 			revenue: faker.number.int({min: 2500, max: 10000}) * 100,
 		}
 	})
