@@ -8,11 +8,10 @@
 
 <main>
 	<h1 class="font-serif mb-4 text-xl md:text-2xl">Dashboard</h1>
-	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-		<DashboardCards cardData={data.cardData} />
-	</div>
+	<DashboardCards cardData={data.streamed.cardData} />
+	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
 	<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
-		<RevenueChart totalRevenue={data.allRevenue} />
-		<LatestInvoices latestInvoices={data.latestInvoices} />
+		<RevenueChart totalRevenue={data.streamed.allRevenue} />
+		<LatestInvoices latestInvoices={data.streamed.latestInvoices} />
 	</div>
 </main>

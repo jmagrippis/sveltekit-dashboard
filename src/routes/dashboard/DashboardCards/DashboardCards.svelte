@@ -3,19 +3,29 @@
 	import {formatCurrencyInCents} from '$lib/formatCurrency'
 	import type {CardData} from '$lib/server/db/dashboardData'
 	import {Clock3, Coins, Inbox, Users2} from 'lucide-svelte'
+	import CardSkeleton from '../Skeletons/CardSkeleton.svelte'
 
-	export let cardData: CardData
+	export let cardData: Promise<CardData>
 </script>
 
-<Card title="Collected" value={formatCurrencyInCents(cardData.amountCollected)}>
-	<Coins />
-</Card>
-<Card title="Pending" value={formatCurrencyInCents(cardData.amountPending)}>
-	<Clock3 />
-</Card>
-<Card title="Total Invoices" value={cardData.totalInvoices}>
-	<Inbox />
-</Card>
-<Card title="Total Customers" value={cardData.totalCustomers}>
-	<Users2 />
-</Card>
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+	{#await cardData}
+		<CardSkeleton />
+		<CardSkeleton />
+		<CardSkeleton />
+		<CardSkeleton />
+	{:then data}
+		<Card title="Collected" value={formatCurrencyInCents(data.amountCollected)}>
+			<Coins />
+		</Card>
+		<Card title="Pending" value={formatCurrencyInCents(data.amountPending)}>
+			<Clock3 />
+		</Card>
+		<Card title="Total Invoices" value={data.totalInvoices}>
+			<Inbox />
+		</Card>
+		<Card title="Total Customers" value={data.totalCustomers}>
+			<Users2 />
+		</Card>
+	{/await}
+</div>

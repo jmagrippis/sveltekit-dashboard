@@ -2,8 +2,11 @@ import {prisma} from './prisma'
 
 export const fetchAllRevenue = () => prisma.revenue.findMany()
 
-export const fetchLatestInvoices = () =>
-	prisma.invoice.findMany({include: {customer: true}})
+export const fetchLatestInvoices = async () => {
+	await delay(1000)
+
+	return prisma.invoice.findMany({include: {customer: true}})
+}
 
 export type CardData = {
 	amountCollected: number
@@ -11,6 +14,8 @@ export type CardData = {
 	totalInvoices: number
 	totalCustomers: number
 }
+
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export const fetchCardData = async (): Promise<CardData> => {
 	const [
@@ -27,6 +32,8 @@ export const fetchCardData = async (): Promise<CardData> => {
 		prisma.invoice.count(),
 		prisma.customer.count(),
 	])
+
+	await delay(5000)
 
 	return {
 		amountCollected: amountCollectedResult._sum.amount || 0,

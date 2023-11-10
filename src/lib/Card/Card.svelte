@@ -5,7 +5,7 @@
 
 <div class="rounded-xl bg-gray-50 p-2 shadow-sm">
 	<div class="flex p-4">
-		<slot name="icon" />
+		<slot />
 		<h3 class="ml-2 text-sm font-medium">{title}</h3>
 	</div>
 	<p

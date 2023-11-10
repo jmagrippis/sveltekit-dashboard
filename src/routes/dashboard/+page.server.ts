@@ -6,15 +6,11 @@ import {
 import type {PageServerLoad} from './$types'
 
 export const load = (async () => {
-	const [allRevenue, latestInvoices, cardData] = await Promise.all([
-		fetchAllRevenue(),
-		fetchLatestInvoices(),
-		fetchCardData(),
-	])
+	const cardData = fetchCardData()
+	const latestInvoices = fetchLatestInvoices()
+	const allRevenue = fetchAllRevenue()
 
 	return {
-		allRevenue,
-		latestInvoices,
-		cardData,
+		streamed: {cardData, allRevenue, latestInvoices},
 	}
 }) satisfies PageServerLoad
