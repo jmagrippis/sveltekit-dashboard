@@ -1,17 +1,18 @@
 <script lang="ts">
-	import {formatCurrencyInCents} from '$lib/formatCurrency'
+	import ChartSkeleton from '../Skeletons/ChartSkeleton.svelte'
+	import Chart from './Chart.svelte'
 
 	export let totalRevenue: Promise<{month: string; revenue: number}[]>
 </script>
 
-{#await totalRevenue then total}
-	<div class="flex w-full flex-col md:col-span-4 lg:col-span-4">
-		<h2 class="font-serif mb-4 text-xl md:text-2xl">Recent Revenue</h2>
+<div class="flex w-full flex-col md:col-span-4">
+	<h2 class="mb-4 font-serif text-xl md:text-2xl">Recent Revenue</h2>
 
-		<ul>
-			{#each total as { month, revenue }}
-				<li>{month}: {formatCurrencyInCents(revenue)}</li>
-			{/each}
-		</ul>
+	<div class="rounded-xl bg-gray-50 p-4">
+		{#await totalRevenue}
+			<ChartSkeleton />
+		{:then total}
+			<Chart {total} />
+		{/await}
 	</div>
-{/await}
+</div>

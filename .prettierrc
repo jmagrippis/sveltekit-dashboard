@@ -4,5 +4,5 @@
 	"trailingComma": "all",
 	"semi": false,
 	"bracketSpacing": false,
-	"plugins": ["prettier-plugin-svelte"]
+	"plugins": ["prettier-plugin-svelte", "prettier-plugin-tailwindcss"]
 }

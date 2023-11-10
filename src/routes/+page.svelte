@@ -11,7 +11,7 @@
 </script>
 
 <header
-	class="flex h-20 shrink-0 items-end rounded-lg bg-primary-500 p-4 md:h-52 mb-4"
+	class="mb-4 flex h-20 shrink-0 items-end rounded-lg bg-primary-500 p-4 md:h-52"
 />
 
 <main class="flex grow flex-col gap-4 md:flex-row">
@@ -28,7 +28,7 @@
 			you by Vercel.
 		</p>
 		<a
-			class="flex gap-4 items-center self-start rounded-lg bg-primary-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-400 md:text-base"
+			class="flex items-center gap-4 self-start rounded-lg bg-primary-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-400 md:text-base"
 			href="/login"><span>Log in</span><MoveRight /></a
 		>
 	</div>

@@ -8,6 +8,10 @@
 	strong {
 		@apply font-bold;
 	}
+
+	:root {
+		--primary-color: #1a202c;
+	}
 }
 
 @tailwind components;

@@ -1,5 +1,5 @@
 <div
-	class="animate-pulse relative overflow-hidden rounded-xl bg-gray-100 p-2 shadow-sm"
+	class="relative animate-pulse overflow-hidden rounded-xl bg-gray-100 p-2 shadow-sm"
 >
 	<div class="flex p-4">
 		<div class="h-5 w-5 rounded-md bg-gray-200" />

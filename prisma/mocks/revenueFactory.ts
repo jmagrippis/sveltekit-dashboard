@@ -1,8 +1,11 @@
 import {faker} from '@faker-js/faker'
 
 export const revenueFactory = (n: number) =>
-	[...Array(n).keys()].map(() => ({
-		// TODO: This should actually be sequential months
-		month: faker.date.month(),
-		revenue: faker.number.int({min: 2_500, max: 10_000}) * 100,
-	}))
+	[...Array(n).keys()].map((i) => {
+		const date = new Date()
+		date.setMonth(date.getMonth() - i)
+		return {
+			month: date.toLocaleString('default', {month: 'long'}),
+			revenue: faker.number.int({min: 2500, max: 10000}) * 100,
+		}
+	})

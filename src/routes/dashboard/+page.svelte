@@ -7,7 +7,7 @@
 </script>
 
 <main>
-	<h1 class="font-serif mb-4 text-xl md:text-2xl">Dashboard</h1>
+	<h1 class="mb-4 font-serif text-xl md:text-2xl">Dashboard</h1>
 	<DashboardCards cardData={data.streamed.cardData} />
 	<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4"></div>
 	<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-4 lg:grid-cols-8">
