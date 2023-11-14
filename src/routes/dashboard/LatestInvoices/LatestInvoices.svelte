@@ -3,6 +3,7 @@
 	import type {Customer, Invoice} from '@prisma/client'
 	import {RefreshCcw} from 'lucide-svelte'
 	import LatestInvoicesSkeleton from '../Skeletons/LatestInvoicesSkeleton.svelte'
+	import Avatar from '$lib/components/Avatar.svelte'
 
 	export let latestInvoices: Promise<(Invoice & {customer: Customer})[]>
 </script>
@@ -19,13 +20,11 @@
 						class="flex flex-row items-center justify-between py-4"
 						class:border-t={i !== 0}
 					>
-						<div class="flex items-center">
-							<img
+						<div class="flex items-center gap-4">
+							<Avatar
 								src={invoice.customer.image_url}
-								class="mr-4 rounded-full"
-								width={32}
-								height={32}
-								alt={`The user avatar of ${invoice.customer.name}`}
+								alt={`${invoice.customer.name}'s profile picture`}
+								size={32}
 							/>
 							<div class="min-w-0">
 								<p class="truncate text-sm font-semibold md:text-base">

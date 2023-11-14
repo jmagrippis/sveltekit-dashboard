@@ -10,7 +10,7 @@ export const fetchAllRevenue = async () => {
 export const fetchLatestInvoices = async () => {
 	await delay(1000)
 
-	return prisma.invoice.findMany({include: {customer: true}})
+	return prisma.invoice.findMany({include: {customer: true}, take: 5})
 }
 
 export type CardData = {
