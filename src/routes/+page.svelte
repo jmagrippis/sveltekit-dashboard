@@ -8,11 +8,10 @@
 	import desktopAvif from './hero-desktop.png?w=800;1200;1400&format=avif&as=srcset&img'
 	import desktopWebp from './hero-desktop.png?w=800;1200;1400&format=webp&as=srcset&img'
 	import desktopFallback from './hero-desktop.png?w=1400&as=metadata&img'
+	import Header from './Header/Header.svelte'
 </script>
 
-<header
-	class="mb-4 flex h-20 shrink-0 items-end rounded-lg bg-primary-500 p-4 md:h-52"
-/>
+<Header />
 
 <main class="flex grow flex-col gap-4 md:flex-row">
 	<div

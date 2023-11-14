@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Card from '$lib/Card/Card.svelte'
+	import Card from '$lib/components/Card/Card.svelte'
 	import {formatCurrencyInCents} from '$lib/formatCurrency'
 	import type {CardData} from '$lib/server/db/dashboardData'
 	import {Clock3, Coins, Inbox, Users2} from 'lucide-svelte'
