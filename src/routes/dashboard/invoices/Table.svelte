@@ -2,12 +2,12 @@
 	import type {Customer, Invoice} from '@prisma/client'
 	import Avatar from '$lib/components/Avatar.svelte'
 	import {formatCurrencyInCents} from '$lib/formatCurrency'
-	import {formatIsoDate} from '$lib/formatDate'
+	import {formatDate} from '$lib/formatDate'
 	import DeleteInvoice from '$lib/components/DeleteButton.svelte'
 	import InvoiceStatus from './InvoiceStatus.svelte'
 	import UpdateInvoice from './UpdateInvoice.svelte'
 
-	export let invoices: (Omit<Invoice, 'date'> & {date: string} & {
+	export let invoices: (Invoice & {
 		customer: Customer
 	})[]
 </script>
@@ -39,7 +39,7 @@
 								<p class="text-xl font-medium">
 									{formatCurrencyInCents(invoice.amount)}
 								</p>
-								<p>{formatIsoDate(invoice.date)}</p>
+								<p>{formatDate(invoice.date)}</p>
 							</div>
 							<div class="flex justify-end gap-2">
 								<UpdateInvoice id={invoice.id} />
@@ -88,7 +88,7 @@
 								{formatCurrencyInCents(invoice.amount)}
 							</td>
 							<td class="whitespace-nowrap px-3 py-3">
-								{formatIsoDate(invoice.date)}
+								{formatDate(invoice.date)}
 							</td>
 							<td class="whitespace-nowrap px-3 py-3">
 								<InvoiceStatus status={invoice.status} />

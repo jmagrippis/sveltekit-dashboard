@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
 	import Search from '$lib/components/Search.svelte'
 	import {Plus} from 'lucide-svelte'
 	import Table from './Table.svelte'
+
 	export let data
 </script>
 

@@ -1,24 +1,20 @@
+import type {Prisma} from '@prisma/client'
 import {prisma} from './prisma'
 
 export const fetchInvoices = async ({
-	query = '',
+	query,
 	skip = 0,
 	take = 10,
 }: {
-	query?: string
+	query: string | null
 	skip?: number
 	take?: number
 }) => {
-	try {
-		return prisma.invoice.findMany({
-			select: {
-				id: true,
-				amount: true,
-				date: true,
-				status: true,
-				customer: {select: {name: true, image_url: true, email: true}},
-			},
-			where: {
+	const filters: Prisma.InvoiceWhereInput[] = []
+
+	if (query) {
+		filters.push(
+			{
 				customer: {
 					name: {
 						contains: query,
@@ -26,14 +22,47 @@ export const fetchInvoices = async ({
 					},
 				},
 			},
-			take,
-			skip,
-			orderBy: {date: 'desc'},
-		})
-	} catch (error) {
-		console.log('fetchInvoices ERROR', error)
-		return []
+			{
+				customer: {
+					email: {
+						contains: query,
+						mode: 'insensitive',
+					},
+				},
+			},
+			{
+				status: {
+					equals: query,
+					mode: 'insensitive',
+				},
+			},
+		)
+
+		if (parseFloat(query)) {
+			filters.push({
+				amount: {equals: parseFloat(query) * 100},
+			})
+		}
 	}
+
+	const args: Prisma.InvoiceFindManyArgs = {
+		select: {
+			id: true,
+			amount: true,
+			date: true,
+			status: true,
+			customer: {select: {name: true, image_url: true, email: true}},
+		},
+		take,
+		skip,
+		orderBy: {date: 'desc'},
+	}
+
+	if (filters.length) {
+		args.where = {OR: filters}
+	}
+
+	return prisma.invoice.findMany(args)
 }
 
 export const fetchInvoice = async (id: string) =>

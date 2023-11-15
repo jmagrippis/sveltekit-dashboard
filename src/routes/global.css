@@ -43,6 +43,29 @@
 	:root {
 		--primary-color: #1a202c;
 	}
+
+	/* view transition animations */
+	@keyframes fade-out {
+		to {
+			opacity: 0;
+		}
+	}
+
+	@keyframes slide-from-right {
+		from {
+			transform: translateX(100%);
+		}
+	}
+
+	:root::view-transition-old(root) {
+		pointer-events: none;
+		animation: 300ms ease-out both fade-out;
+	}
+
+	:root::view-transition-new(root) {
+		pointer-events: none;
+		animation: 300ms ease-out both slide-from-right;
+	}
 }
 
 @tailwind components;
