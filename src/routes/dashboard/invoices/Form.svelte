@@ -30,7 +30,7 @@
 				<select
 					id="customer"
 					name="customerId"
-					class="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+					class="peer block w-full rounded-md border border-gray-200 py-2 pl-10 outline-2 placeholder:text-gray-500"
 					required
 					aria-describedby="customer-error"
 				>
@@ -67,7 +67,7 @@
 						min="0"
 						value={invoice?.amount ? invoice.amount / 100 : undefined}
 						placeholder="Enter USD amount"
-						class="peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500"
+						class="peer block w-full rounded-md border border-gray-200 py-2 pl-10 outline-2 placeholder:text-gray-500"
 						required
 					/>
 					<DollarSign
@@ -124,12 +124,12 @@
 	<div class="mt-6 flex justify-end gap-4">
 		<a
 			href="/dashboard/invoices"
-			class="flex h-10 items-center rounded-lg bg-gray-100 px-4 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-200"
+			class="flex h-10 items-center rounded-lg bg-gray-100 px-4 font-medium text-gray-600 no-underline transition-colors hover:bg-gray-200"
 		>
 			Cancel
 		</a>
 		<button
-			class="flex h-10 items-center rounded-lg bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
+			class="flex h-10 items-center rounded-lg bg-blue-500 px-4 font-medium text-white transition-colors hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 active:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-50"
 			>{invoice?.id ? 'Edit' : 'Create'} Invoice</button
 		>
 	</div>

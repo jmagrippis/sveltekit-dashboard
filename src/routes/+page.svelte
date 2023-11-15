@@ -27,7 +27,7 @@
 			you by Vercel.
 		</p>
 		<a
-			class="flex items-center gap-4 self-start rounded-lg bg-primary-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-400 md:text-base"
+			class="flex items-center gap-4 self-start rounded-lg bg-primary-500 px-6 py-3 font-medium text-white transition-colors hover:bg-primary-400 md:text-base"
 			href="/login"><span>Log in</span><MoveRight /></a
 		>
 	</div>

@@ -52,13 +52,11 @@
 			<table class="hidden min-w-full text-gray-900 md:table">
 				<thead class="rounded-lg text-left text-sm font-normal">
 					<tr>
-						<th scope="col" class="px-4 py-5 font-medium sm:pl-6">
-							Customer
-						</th>
-						<th scope="col" class="px-3 py-5 font-medium"> Email </th>
-						<th scope="col" class="px-3 py-5 font-medium"> Amount </th>
-						<th scope="col" class="px-3 py-5 font-medium"> Date </th>
-						<th scope="col" class="px-3 py-5 font-medium"> Status </th>
+						<th scope="col" class="px-4 py-5 font-medium sm:pl-6">Customer</th>
+						<th scope="col" class="px-3 py-5 font-medium">Email</th>
+						<th scope="col" class="px-3 py-5 font-medium">Amount</th>
+						<th scope="col" class="px-3 py-5 font-medium">Date</th>
+						<th scope="col" class="px-3 py-5 font-medium">Status</th>
 						<th scope="col" class="relative py-3 pl-6 pr-3">
 							<span class="sr-only">Edit</span>
 						</th>
@@ -78,7 +76,7 @@
 										height={28}
 										alt={`${invoice.customer.name}'s profile picture`}
 									/>
-									<p>{invoice.customer.name}</p>
+									<p class="truncate">{invoice.customer.name}</p>
 								</div>
 							</td>
 							<td class="whitespace-nowrap px-3 py-3">
