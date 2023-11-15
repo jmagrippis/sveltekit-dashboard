@@ -1,14 +1,19 @@
+import {dev} from '$app/environment'
 import {prisma} from './prisma'
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 export const fetchAllRevenue = async () => {
-	await delay(500)
+	if (dev) {
+		await delay(500)
+	}
 	return prisma.revenue.findMany()
 }
 
 export const fetchLatestInvoices = async () => {
-	await delay(1000)
+	if (dev) {
+		await delay(500)
+	}
 
 	return prisma.invoice.findMany({include: {customer: true}, take: 5})
 }
@@ -36,7 +41,9 @@ export const fetchCardData = async (): Promise<CardData> => {
 		prisma.customer.count(),
 	])
 
-	await delay(3000)
+	if (dev) {
+		await delay(1500)
+	}
 
 	return {
 		amountCollected: amountCollectedResult._sum.amount || 0,
