@@ -25,7 +25,7 @@
 
 <form
 	action={actionPathname}
-	class="relative flex flex-1 flex-shrink-0"
+	class="relative flex grow"
 	data-sveltekit-keepfocus
 >
 	<input type="hidden" name="page" value={resultsPage} />
