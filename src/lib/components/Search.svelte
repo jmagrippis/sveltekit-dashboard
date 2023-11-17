@@ -6,13 +6,13 @@
 
 	export let placeholder: string
 	$: query = $page.url.searchParams.get('query') || ''
-	$: resultsPage = $page.url.searchParams.get('page') || '1'
 	$: actionPathname = $page.url.pathname
 
 	let timeout: number
+
 	const handleInput: EventHandler<Event, HTMLInputElement> = (event) => {
-		if (timeout) clearTimeout(timeout)
-		const form = event.currentTarget?.form
+		clearTimeout(timeout)
+		const form = event.currentTarget.form
 		if (form) {
 			timeout = setTimeout(() => {
 				form.requestSubmit()
@@ -27,10 +27,10 @@
 	action={actionPathname}
 	class="relative flex grow"
 	data-sveltekit-keepfocus
+	data-sveltekit-noscroll
 >
-	<input type="hidden" name="page" value={resultsPage} />
 	<label class="w-full">
-		<span class="sr-only">Search</span>
+		<span class="sr-only">{placeholder}</span>
 		<input
 			on:input={handleInput}
 			value={query}

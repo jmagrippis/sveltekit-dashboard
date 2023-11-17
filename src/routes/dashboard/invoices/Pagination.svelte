@@ -17,7 +17,7 @@
 </script>
 
 <div
-	class="flex w-full grow items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+	class="flex w-full grow items-center justify-between border-t border-gray-200 bg-white px-2 py-3"
 >
 	<!-- Small Viewport styles  -->
 	<div class="flex w-full flex-1 justify-between sm:hidden">
@@ -45,9 +45,9 @@
 	<div
 		class="hidden gap-4 sm:flex sm:flex-1 sm:items-center sm:justify-between"
 	>
-		<p class="self-justify-start text-sm text-gray-700">
+		<p class="text-sm text-gray-700">
 			<span class="font-medium">{totalCount}</span>
-			results
+			total results
 		</p>
 		<nav
 			class="isolate inline-flex -space-x-px rounded-md shadow-sm"
