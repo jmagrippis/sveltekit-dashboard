@@ -17,22 +17,29 @@
 </script>
 
 <div
-	class="flex grow items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
+	class="flex w-full grow items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6"
 >
 	<!-- Small Viewport styles  -->
-	<div class="flex flex-1 justify-between sm:hidden">
-		<a
-			href={prevPageHref}
-			aria-disabled={currentPage === 1 ? 'true' : undefined}
-			class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 no-underline hover:bg-gray-50"
-			>Previous</a
-		>
-		<a
-			href={nextPageHref}
-			aria-disabled={currentPage === totalPages ? 'true' : undefined}
-			class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 no-underline hover:bg-gray-50"
-			>Next</a
-		>
+	<div class="flex w-full flex-1 justify-between sm:hidden">
+		{#if currentPage !== 1}
+			<a
+				href={prevPageHref}
+				class="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 no-underline hover:bg-gray-50"
+				>Previous</a
+			>
+		{:else}
+			<span />
+		{/if}
+		{#if currentPage !== totalPages}
+			<a
+				href={nextPageHref}
+				aria-disabled={currentPage === totalPages ? 'true' : undefined}
+				class="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 no-underline hover:bg-gray-50"
+				>Next</a
+			>
+		{:else}
+			<span />
+		{/if}
 	</div>
 	<!-- Bigger Viewport styles  -->
 	<div

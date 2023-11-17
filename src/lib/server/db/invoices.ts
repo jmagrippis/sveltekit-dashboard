@@ -2,11 +2,11 @@ import type {Prisma} from '@prisma/client'
 import {prisma} from './prisma'
 
 export const fetchInvoices = async ({
-	query,
+	query = '',
 	skip = 0,
-	take = 10,
+	take = 100,
 }: {
-	query: string | null
+	query?: string | null
 	skip?: number
 	take?: number
 }) => {
