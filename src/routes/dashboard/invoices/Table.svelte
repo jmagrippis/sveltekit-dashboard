@@ -7,9 +7,10 @@
 	import InvoiceStatus from './InvoiceStatus.svelte'
 	import UpdateInvoice from './UpdateInvoice.svelte'
 
-	export let invoices: (Invoice & {
-		customer: Customer
-	})[]
+	type UIInvoice = Pick<Invoice, 'id' | 'amount' | 'status' | 'date'> & {
+		customer: Pick<Customer, 'name' | 'email' | 'image_url'>
+	}
+	export let invoices: UIInvoice[]
 </script>
 
 <div class="mt-6 flow-root">

@@ -2,6 +2,7 @@
 	import Search from '$lib/components/Search.svelte'
 	import {Plus} from 'lucide-svelte'
 	import Table from './Table.svelte'
+	import Pagination from './Pagination.svelte'
 
 	export let data
 </script>
@@ -22,7 +23,6 @@
 	</div>
 	<Table invoices={data.invoices} />
 	<div class="mt-5 flex w-full justify-center">
-		Pagination
-		<!-- {/* <Pagination totalPages={totalPages} /> */} -->
+		<Pagination totalPages={data.totalPages} totalCount={data.invoicesCount} />
 	</div>
 </div>

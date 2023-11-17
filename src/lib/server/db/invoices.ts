@@ -45,24 +45,24 @@ export const fetchInvoices = async ({
 		}
 	}
 
-	const args: Prisma.InvoiceFindManyArgs = {
-		select: {
-			id: true,
-			amount: true,
-			date: true,
-			status: true,
-			customer: {select: {name: true, image_url: true, email: true}},
-		},
-		take,
-		skip,
-		orderBy: {date: 'desc'},
-	}
+	const [invoices, invoicesCount] = await prisma.$transaction([
+		prisma.invoice.findMany({
+			select: {
+				id: true,
+				amount: true,
+				date: true,
+				status: true,
+				customer: {select: {name: true, image_url: true, email: true}},
+			},
+			take,
+			skip,
+			orderBy: {date: 'desc'},
+			...(filters.length ? {where: {OR: filters}} : {}),
+		}),
+		prisma.invoice.count(filters.length ? {where: {OR: filters}} : undefined),
+	])
 
-	if (filters.length) {
-		args.where = {OR: filters}
-	}
-
-	return prisma.invoice.findMany(args)
+	return {invoices, invoicesCount}
 }
 
 export const fetchInvoice = async (id: string) =>

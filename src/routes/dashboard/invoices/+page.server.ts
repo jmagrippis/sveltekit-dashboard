@@ -2,6 +2,8 @@ import {deleteInvoice, fetchInvoices} from '$lib/server/db/invoices'
 import type {Actions, PageServerLoad} from './$types'
 import {z} from 'zod'
 
+const ONE_MINUTE_IN_SECONDS = 60
+
 const SearchSchema = z.object({
 	query: z.string().nullable(),
 	page: z
@@ -11,19 +13,27 @@ const SearchSchema = z.object({
 })
 
 const ITEM_LIMIT = 6
-export const load: PageServerLoad = async ({url}) => {
+export const load: PageServerLoad = async ({url, setHeaders}) => {
 	const {query, page} = SearchSchema.parse({
 		query: url.searchParams.get('query'),
 		page: url.searchParams.get('page'),
 	})
 
-	const invoices = await fetchInvoices({
+	const {invoices, invoicesCount} = await fetchInvoices({
 		query,
 		take: ITEM_LIMIT,
 		skip: (page - 1) * ITEM_LIMIT,
 	})
 
-	return {invoices}
+	setHeaders({
+		'cache-control': `private, max-age=${ONE_MINUTE_IN_SECONDS}`,
+	})
+
+	return {
+		invoices,
+		invoicesCount,
+		totalPages: Math.ceil(invoicesCount / ITEM_LIMIT),
+	}
 }
 
 const DeleteInvoiceSchema = z.object({id: z.string()})
