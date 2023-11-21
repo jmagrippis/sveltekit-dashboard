@@ -16,6 +16,8 @@
 		"seed": "bun prisma/seed.ts"
 	},
 	"devDependencies": {
+		"@auth/core": "^0.18.2",
+		"@auth/sveltekit": "^0.3.13",
 		"@faker-js/faker": "^8.3.1",
 		"@fontsource-variable/inter": "^5.0.15",
 		"@fontsource/lusitana": "^5.0.8",
@@ -46,5 +48,8 @@
 		"vite-imagetools": "^6.2.4",
 		"zod": "^3.22.4"
 	},
-	"type": "module"
+	"type": "module",
+	"volta": {
+		"node": "20.9.0"
+	}
 }
