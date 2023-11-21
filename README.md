@@ -8,6 +8,8 @@ See Johnny develop this app [live on his channel](https://www.youtube.com/@johnn
 
 - [Overview & Chapters 1-5, including View Transitions!](https://www.youtube.com/watch?v=0o1tqcui1k8)
 - [Chapters 6-10, including custom chart with Chart.JS!](https://www.youtube.com/watch?v=jKehybNqzio)
+- [First take on Chapters 11-13, with the Mutations / SvelteKit actions part being successful](https://www.youtube.com/watch?v=sVa3sZvkUUk)
+- [Chapter 11 done well 😅 Search & Pagination!](https://www.youtube.com/watch?v=iu4ngNRLaCI)
 
 ## Setup
 
