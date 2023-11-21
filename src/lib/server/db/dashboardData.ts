@@ -15,7 +15,11 @@ export const fetchLatestInvoices = async () => {
 		await delay(500)
 	}
 
-	return prisma.invoice.findMany({include: {customer: true}, take: 5})
+	return prisma.invoice.findMany({
+		include: {customer: true},
+		take: 5,
+		orderBy: {date: 'desc'},
+	})
 }
 
 export type CardData = {
