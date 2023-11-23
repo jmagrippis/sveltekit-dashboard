@@ -1,22 +1,12 @@
-/*
-  Warnings:
-
-  - The primary key for the `users` table will be changed. If it partially fails, the table could be left without primary key constraint.
-
-*/
 -- AlterTable
-ALTER TABLE "users" DROP CONSTRAINT "users_pkey",
-ADD COLUMN     "email_verified" TIMESTAMP(3),
+ALTER TABLE "users" ADD COLUMN     "email_verified" TIMESTAMP(3),
 ADD COLUMN     "image" TEXT,
-ALTER COLUMN "id" DROP DEFAULT,
-ALTER COLUMN "id" SET DATA TYPE TEXT,
-ALTER COLUMN "password" DROP NOT NULL,
-ADD CONSTRAINT "users_pkey" PRIMARY KEY ("id");
+ALTER COLUMN "password" DROP NOT NULL;
 
 -- CreateTable
 CREATE TABLE "accounts" (
     "id" TEXT NOT NULL,
-    "user_id" TEXT NOT NULL,
+    "user_id" UUID NOT NULL,
     "type" TEXT NOT NULL,
     "provider" TEXT NOT NULL,
     "provider_account_id" TEXT NOT NULL,
@@ -35,7 +25,7 @@ CREATE TABLE "accounts" (
 CREATE TABLE "sessions" (
     "id" TEXT NOT NULL,
     "session_token" TEXT NOT NULL,
-    "user_id" TEXT NOT NULL,
+    "user_id" UUID NOT NULL,
     "expires" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "sessions_pkey" PRIMARY KEY ("id")
