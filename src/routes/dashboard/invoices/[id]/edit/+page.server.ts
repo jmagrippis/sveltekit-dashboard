@@ -24,6 +24,11 @@ export const load = (async ({params}) => {
 	return {
 		customers,
 		invoice,
+		metadata: {
+			title: `Edit invoice ${invoice.id}`,
+			description:
+				'Edit this existing invoice, by changing the price or setting its status.',
+		},
 	}
 }) satisfies PageServerLoad
 

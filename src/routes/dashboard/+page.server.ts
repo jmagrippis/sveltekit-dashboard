@@ -12,5 +12,10 @@ export const load = (async () => {
 
 	return {
 		streamed: {cardData, allRevenue, latestInvoices},
+		metadata: {
+			title: 'Dashboard',
+			description:
+				'View your latest stats at a glance, navigate to manage your invoices and revenue',
+		},
 	}
 }) satisfies PageServerLoad
