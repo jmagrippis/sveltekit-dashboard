@@ -1,6 +1,6 @@
 import {faker} from '@faker-js/faker'
 
-export const revenueFactory = (n: number) =>
+export const generateMockRevenue = (n: number) =>
 	[...Array(n).keys()].map((i) => {
 		const date = new Date()
 		date.setMonth(date.getMonth() - i)
