@@ -34,5 +34,9 @@ export const load: PageServerLoad = async ({url, setHeaders}) => {
 		invoices,
 		invoicesCount,
 		totalPages: Math.ceil(invoicesCount / INVOICES_PER_PAGE),
+		metadata: {
+			title: 'Invoices | Dashboard',
+			description: 'Search & filter through all your invoices',
+		},
 	}
 }

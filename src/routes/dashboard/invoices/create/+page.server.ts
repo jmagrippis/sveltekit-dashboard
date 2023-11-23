@@ -10,6 +10,11 @@ export const load = (async () => {
 
 	return {
 		customers,
+		metadata: {
+			title: 'Create Invoice | Dashboard',
+			description:
+				'Create a new invoice for a customer, set the amount and status',
+		},
 	}
 }) satisfies PageServerLoad
 
