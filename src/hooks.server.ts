@@ -3,6 +3,8 @@ import GitHub from '@auth/core/providers/github'
 import {GITHUB_ID, GITHUB_SECRET} from '$env/static/private'
 import {sequence} from '@sveltejs/kit/hooks'
 import {redirect, type Handle} from '@sveltejs/kit'
+import {PrismaAdapter} from '@auth/prisma-adapter'
+import {prisma} from '$lib/server/db/prisma'
 
 const authorization: Handle = async ({event, resolve}) => {
 	// Protect all routes under /dashboard
@@ -18,6 +20,7 @@ const authorization: Handle = async ({event, resolve}) => {
 
 export const handle: Handle = sequence(
 	SvelteKitAuth({
+		adapter: PrismaAdapter(prisma),
 		providers: [GitHub({clientId: GITHUB_ID, clientSecret: GITHUB_SECRET})],
 	}),
 	authorization,
