@@ -1,8 +1,10 @@
 {
+	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"marketingHero": "Welcome to Acme. This is the example for the Learn SvelteKit course by Johnny, inspired by the Next.js Learn Course, brought to you by Vercel.",
 	"login": "Log in",
 	"pleaseLogin": "Please log in to continue",
 	"loginWithGithub": "Log in with GitHub",
+	"dashboard": "dashboard",
 	"collected": "collected",
 	"pending": "pending",
 	"totalInvoices": "total invoices",
@@ -14,5 +16,7 @@
 	"searchInvoicesPlaceholder": "Search by name, email, amount, status...",
 	"paid": "paid",
 	"previous": "previous",
-	"next": "next"
+	"next": "next",
+	"currentLanguage": "Current language",
+	"madeWithLove": "Made with 🧡 by Johnny"
 }

@@ -13,7 +13,9 @@
 	<LatestInvoicesSkeleton />
 {:then invoices}
 	<div class="flex w-full flex-col md:col-span-4 lg:col-span-4">
-		<h2 class="mb-4 font-serif text-xl md:text-2xl">{m.latestInvoices()}</h2>
+		<h2 class="mb-4 font-serif text-xl capitalize md:text-2xl">
+			{m.latestInvoices()}
+		</h2>
 		<div class="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
 			<div class="bg-white px-6">
 				{#each invoices as invoice, i}
