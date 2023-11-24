@@ -1,4 +1,19 @@
 {
+	"$schema": "https://inlang.com/schema/inlang-message-format",
 	"marketingHero": "Καλώς ήρθατε στην Acme. Πρόκειτε για ένα παράδειγμα για τα μαθήματα SvelteKit/Learn από τον Johnny, εμπνευσμένο από τα μαθήματα Next/Learn από την Vercel.",
-	"login": "Συνδεθείτε"
+	"login": "Συνδεθείτε",
+	"pleaseLogin": "Παρακαλώ συνδεθείτε για να συνεχίσετε",
+	"loginWithGithub": "Συνδεθείτε με GitHub",
+	"collected": "εισπράξεις",
+	"pending": "εκκρεμή",
+	"totalInvoices": "σύνολο εισπράξεων",
+	"totalCustomers": "σύνολο πελατών",
+	"recentRevenue": "πρόσφατα έσοδα",
+	"latestInvoices": "τελευταίες εισπράξεις",
+	"updatedNow": "μόλις ανανεώθηκε",
+	"invoices": "εισπράξεις",
+	"searchInvoicesPlaceholder": "Ψάξτε κατ' όνομα, email, ποσό, κατάσταση",
+	"paid": "πληρωμένο",
+	"previous": "προηγούμενη",
+	"next": "επόμενη"
 }
