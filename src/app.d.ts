@@ -1,4 +1,7 @@
 // See https://kit.svelte.dev/docs/types#app
+
+import type {AvailableLocale} from './i18n/i18n'
+
 // for information about these interfaces
 declare global {
 	declare module '*&img'
@@ -10,7 +13,9 @@ declare global {
 
 	namespace App {
 		// interface Error {}
-		// interface Locals {}
+		interface Locals {
+			locale: AvailableLocale
+		}
 		// interface PageData {}
 		// interface Platform {}
 	}
