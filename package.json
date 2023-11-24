@@ -35,6 +35,7 @@
 		"eslint-config-prettier": "^8.10.0",
 		"eslint-plugin-svelte": "^2.35.1",
 		"lucide-svelte": "^0.292.0",
+		"negotiator": "^0.6.3",
 		"postcss": "^8.4.31",
 		"prettier": "^3.1.0",
 		"prettier-plugin-svelte": "^3.1.2",
