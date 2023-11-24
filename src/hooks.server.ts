@@ -7,7 +7,6 @@ import {PrismaAdapter} from '@auth/prisma-adapter'
 import Negotiator from 'negotiator'
 import {prisma} from '$lib/server/db/prisma'
 import {availableLocales, defaultLocale, type AvailableLocale} from '$lib/i18n'
-import {setLanguageTag} from './paraglide/runtime'
 
 const authorization: Handle = async ({event, resolve}) => {
 	// Protect all routes under /dashboard
