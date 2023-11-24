@@ -6,11 +6,8 @@ import {redirect, type Handle} from '@sveltejs/kit'
 import {PrismaAdapter} from '@auth/prisma-adapter'
 import Negotiator from 'negotiator'
 import {prisma} from '$lib/server/db/prisma'
-import {
-	availableLocales,
-	defaultLocale,
-	type AvailableLocale,
-} from './i18n/i18n'
+import {availableLocales, defaultLocale, type AvailableLocale} from '$lib/i18n'
+import {setLanguageTag} from './paraglide/runtime'
 
 const authorization: Handle = async ({event, resolve}) => {
 	// Protect all routes under /dashboard
@@ -30,11 +27,13 @@ const localization: Handle = async ({event, resolve}) => {
 	let locale: AvailableLocale = defaultLocale
 	if (acceptedLanguageHeader) {
 		locale =
-			new Negotiator({
+			(new Negotiator({
 				headers: {
 					'accept-language': acceptedLanguageHeader,
 				},
-			}).language(availableLocales) || defaultLocale
+			}).language(
+				availableLocales as unknown as string[],
+			) as AvailableLocale) || defaultLocale
 	}
 
 	event.locals.locale = locale
