@@ -1,4 +1,6 @@
 import {redirect} from '@sveltejs/kit'
+import * as m from '$m'
+
 import type {PageServerLoad} from './$types'
 
 export const load: PageServerLoad = async (event) => {
@@ -7,7 +9,7 @@ export const load: PageServerLoad = async (event) => {
 
 	return {
 		metadata: {
-			title: 'Login',
+			title: m.login({languageTag: event.locals.locale}),
 			description:
 				'Login with GitHub to see the dashboard. Other providers available on request.',
 		},
