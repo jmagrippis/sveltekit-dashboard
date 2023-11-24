@@ -12,7 +12,8 @@
 		"format": "prettier --write .",
 		"postinstall": "prisma generate",
 		"db:seed": "tsx prisma/mocks/seed.ts",
-		"generate:i18n": "paraglide-js compile --project ./project.inlang.json"
+		"generate:i18n": "paraglide-js compile --project ./project.inlang.json",
+		"test": "playwright test"
 	},
 	"prisma": {
 		"seed": "pnpm run db:seed"
@@ -26,11 +27,13 @@
 		"@fontsource/lusitana": "^5.0.8",
 		"@inlang/cli": "^1.20.0",
 		"@inlang/paraglide-js": "1.0.0-prerelease.10",
+		"@playwright/test": "^1.40.0",
 		"@prisma/client": "^5.6.0",
 		"@sveltejs/adapter-auto": "^2.1.1",
 		"@sveltejs/kit": "^1.27.6",
 		"@tailwindcss/forms": "^0.5.7",
 		"@types/negotiator": "^0.6.3",
+		"@types/node": "^20.10.0",
 		"@typescript-eslint/eslint-plugin": "^6.12.0",
 		"@typescript-eslint/parser": "^6.12.0",
 		"autoprefixer": "^10.4.16",
