@@ -7,6 +7,11 @@
 
 	import {onNavigate} from '$app/navigation'
 	import {page} from '$app/stores'
+	import {setLanguageTag} from '../paraglide/runtime'
+
+	export let data
+
+	setLanguageTag(data.locale)
 
 	onNavigate((navigation) => {
 		if (

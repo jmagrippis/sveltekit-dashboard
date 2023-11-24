@@ -4,14 +4,15 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "paraglide-js compile --project ./project.inlang.json && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write .",
 		"postinstall": "prisma generate",
-		"db:seed": "tsx prisma/mocks/seed.ts"
+		"db:seed": "tsx prisma/mocks/seed.ts",
+		"generate:i18n": "paraglide-js compile --project ./project.inlang.json"
 	},
 	"prisma": {
 		"seed": "pnpm run db:seed"
@@ -23,10 +24,12 @@
 		"@faker-js/faker": "^8.3.1",
 		"@fontsource-variable/inter": "^5.0.15",
 		"@fontsource/lusitana": "^5.0.8",
+		"@inlang/paraglide-js": "1.0.0-prerelease.10",
 		"@prisma/client": "^5.6.0",
 		"@sveltejs/adapter-auto": "^2.1.1",
 		"@sveltejs/kit": "^1.27.6",
 		"@tailwindcss/forms": "^0.5.7",
+		"@types/negotiator": "^0.6.3",
 		"@typescript-eslint/eslint-plugin": "^6.12.0",
 		"@typescript-eslint/parser": "^6.12.0",
 		"autoprefixer": "^10.4.16",
