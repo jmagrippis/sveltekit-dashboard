@@ -1,5 +1,7 @@
 # SvelteKit Dashboard
 
+![E2E](https://github.com/jmagrippis/sveltekit-dashboard/actions/workflows/playwright.yaml/badge.svg)
+
 This is Johnny's take on the [free Nextjs to SvelteKit](https://johnnify.com/learn/nextjs-to-sveltekit) course, which is a take on [Next/Learn](https://nextjs.org/learn) but implementing with SvelteKit!
 
 ## Livestreams
