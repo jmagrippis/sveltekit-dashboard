@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {Check, Clock} from 'lucide-svelte'
+	import * as m from '$m'
 
 	export let status: string
 
@@ -12,13 +13,13 @@
 </script>
 
 <span
-	class="inline-flex items-center rounded-full px-2 py-1 text-xs {statusClasses}"
+	class="inline-flex items-center rounded-full px-2 py-1 text-xs capitalize {statusClasses}"
 >
 	{#if status === 'pending'}
-		Pending
+		{m.pending()}
 		<Clock class="ml-1 w-4 text-gray-500" />
 	{:else if status === 'paid'}
-		Paid
+		{m.paid()}
 		<Check class="ml-1 w-4 text-white" />
 	{/if}
 </span>

@@ -1,4 +1,18 @@
 {
 	"marketingHero": "Welcome to Acme. This is the example for the Learn SvelteKit course by Johnny, inspired by the Next.js Learn Course, brought to you by Vercel.",
-	"login": "Log in"
+	"login": "Log in",
+	"pleaseLogin": "Please log in to continue",
+	"loginWithGithub": "Log in with GitHub",
+	"collected": "collected",
+	"pending": "pending",
+	"totalInvoices": "total invoices",
+	"totalCustomers": "total customers",
+	"recentRevenue": "recent revenue",
+	"latestInvoices": "latest invoices",
+	"updatedNow": "updated just now",
+	"invoices": "invoices",
+	"searchInvoicesPlaceholder": "Search by name, email, amount, status...",
+	"paid": "paid",
+	"previous": "previous",
+	"next": "next"
 }

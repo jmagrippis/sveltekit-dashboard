@@ -1,6 +1,6 @@
 <script lang="ts">
 	import {MoveRight} from 'lucide-svelte'
-	import * as m from '../paraglide/messages'
+	import * as m from '$m'
 
 	import mobileAvif from './hero-mobile.png?w=720&format=avif&as=srcset&img'
 	import mobileWebp from './hero-mobile.png?w=720&format=webp&as=srcset&img'
@@ -10,8 +10,6 @@
 	import desktopWebp from './hero-desktop.png?w=800;1200;1400&format=webp&as=srcset&img'
 	import desktopFallback from './hero-desktop.png?w=1400&as=metadata&img'
 	import Header from './Header/Header.svelte'
-
-	export let data
 </script>
 
 <Header />

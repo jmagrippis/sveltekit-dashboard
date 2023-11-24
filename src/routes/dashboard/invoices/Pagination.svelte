@@ -1,5 +1,6 @@
 <script lang="ts">
 	import {page} from '$app/stores'
+	import * as m from '$m'
 
 	const getNthPageHref = (currentUrl: URL, n: number) => {
 		const url = new URL(currentUrl)
@@ -24,8 +25,8 @@
 		{#if currentPage !== 1}
 			<a
 				href={prevPageHref}
-				class="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 no-underline hover:bg-gray-50"
-				>Previous</a
+				class="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium capitalize text-gray-700 no-underline hover:bg-gray-50"
+				>{m.previous()}</a
 			>
 		{:else}
 			<span />
@@ -34,8 +35,8 @@
 			<a
 				href={nextPageHref}
 				aria-disabled={currentPage === totalPages ? 'true' : undefined}
-				class="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium text-gray-700 no-underline hover:bg-gray-50"
-				>Next</a
+				class="rounded-md border border-gray-300 bg-white px-4 py-2 font-medium capitalize text-gray-700 no-underline hover:bg-gray-50"
+				>{m.next()}</a
 			>
 		{:else}
 			<span />
@@ -58,7 +59,7 @@
 				aria-disabled={currentPage === 1 ? 'true' : undefined}
 				class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
 			>
-				<span class="sr-only">Previous</span>
+				<span class="sr-only">{m.previous()}</span>
 				<svg
 					class="h-5 w-5"
 					viewBox="0 0 20 20"
@@ -86,7 +87,7 @@
 				aria-disabled={currentPage === totalPages ? 'true' : undefined}
 				class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
 			>
-				<span class="sr-only">Next</span>
+				<span class="sr-only">{m.next()}</span>
 				<svg
 					class="h-5 w-5"
 					viewBox="0 0 20 20"
