@@ -5,6 +5,8 @@
 	import {Clock3, Coins, Inbox, Users2} from 'lucide-svelte'
 	import CardSkeleton from '../Skeletons/CardSkeleton.svelte'
 
+	import * as m from '$m'
+
 	export let cardData: Promise<CardData>
 </script>
 
@@ -15,16 +17,19 @@
 		<CardSkeleton />
 		<CardSkeleton />
 	{:then data}
-		<Card title="Collected" value={formatCurrencyInCents(data.amountCollected)}>
+		<Card
+			title={m.collected()}
+			value={formatCurrencyInCents(data.amountCollected)}
+		>
 			<Coins />
 		</Card>
-		<Card title="Pending" value={formatCurrencyInCents(data.amountPending)}>
+		<Card title={m.pending()} value={formatCurrencyInCents(data.amountPending)}>
 			<Clock3 />
 		</Card>
-		<Card title="Total Invoices" value={data.totalInvoices}>
+		<Card title={m.totalInvoices()} value={data.totalInvoices}>
 			<Inbox />
 		</Card>
-		<Card title="Total Customers" value={data.totalCustomers}>
+		<Card title={m.totalCustomers()} value={data.totalCustomers}>
 			<Users2 />
 		</Card>
 	{/await}

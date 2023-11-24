@@ -56,7 +56,10 @@
 		"zod": "^3.22.4"
 	},
 	"type": "module",
+	"engines": {
+		"node": "18.x"
+	},
 	"volta": {
-		"node": "20.10.0"
+		"node": "18.18.2"
 	}
 }
