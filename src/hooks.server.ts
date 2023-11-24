@@ -6,7 +6,12 @@ import {redirect, type Handle} from '@sveltejs/kit'
 import {PrismaAdapter} from '@auth/prisma-adapter'
 import Negotiator from 'negotiator'
 import {prisma} from '$lib/server/db/prisma'
-import {availableLocales, defaultLocale, type AvailableLocale} from '$lib/i18n'
+import {
+	availableLocales,
+	defaultLocale,
+	type AvailableLocale,
+	isAvailableLocale,
+} from '$lib/i18n'
 
 const authorization: Handle = async ({event, resolve}) => {
 	// Protect all routes under /dashboard
@@ -21,18 +26,25 @@ const authorization: Handle = async ({event, resolve}) => {
 }
 
 const localization: Handle = async ({event, resolve}) => {
-	const acceptedLanguageHeader = event.request.headers.get('Accept-Language')
-
 	let locale: AvailableLocale = defaultLocale
-	if (acceptedLanguageHeader) {
-		locale =
-			(new Negotiator({
-				headers: {
-					'accept-language': acceptedLanguageHeader,
-				},
-			}).language(
-				availableLocales as unknown as string[],
-			) as AvailableLocale) || defaultLocale
+
+	const langFromCookie = event.cookies.get('lang')
+
+	if (isAvailableLocale(langFromCookie)) {
+		locale = langFromCookie
+	} else {
+		const acceptedLanguageHeader = event.request.headers.get('Accept-Language')
+
+		if (acceptedLanguageHeader) {
+			locale =
+				(new Negotiator({
+					headers: {
+						'accept-language': acceptedLanguageHeader,
+					},
+				}).language(
+					availableLocales as unknown as string[],
+				) as AvailableLocale) || defaultLocale
+		}
 	}
 
 	event.locals.locale = locale

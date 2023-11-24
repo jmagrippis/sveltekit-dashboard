@@ -4,6 +4,7 @@
 	"login": "Συνδεθείτε",
 	"pleaseLogin": "Παρακαλώ συνδεθείτε για να συνεχίσετε",
 	"loginWithGithub": "Συνδεθείτε με GitHub",
+	"dashboard": "ταμπλό",
 	"collected": "εισπράξεις",
 	"pending": "εκκρεμή",
 	"totalInvoices": "σύνολο εισπράξεων",
@@ -12,8 +13,10 @@
 	"latestInvoices": "τελευταίες εισπράξεις",
 	"updatedNow": "μόλις ανανεώθηκε",
 	"invoices": "εισπράξεις",
-	"searchInvoicesPlaceholder": "Ψάξτε κατ' όνομα, email, ποσό, κατάσταση",
+	"searchInvoicesPlaceholder": "Ψάξτε κατ’ όνομα, email, ποσό, κατάσταση",
 	"paid": "πληρωμένο",
 	"previous": "προηγούμενη",
-	"next": "επόμενη"
+	"next": "επόμενη",
+	"currentLanguage": "Τρέχουσα γλώσσα",
+	"madeWithLove": "Φτιαγμένο με 🧡 από τον Johnny"
 }

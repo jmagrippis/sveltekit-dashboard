@@ -7,7 +7,9 @@
 </script>
 
 <div class="flex w-full flex-col md:col-span-4">
-	<h2 class="mb-4 font-serif text-xl md:text-2xl">{m.recentRevenue()}</h2>
+	<h2 class="mb-4 font-serif text-xl capitalize md:text-2xl">
+		{m.recentRevenue()}
+	</h2>
 
 	<div class="rounded-xl bg-gray-50 p-4">
 		{#await totalRevenue}

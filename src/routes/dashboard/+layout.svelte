@@ -2,7 +2,7 @@
 	import Nav from './Nav.svelte'
 </script>
 
-<div class="flex h-screen flex-col md:flex-row md:overflow-hidden">
+<div class="flex flex-col md:flex-row md:overflow-hidden">
 	<div class="w-full flex-none md:w-64">
 		<Nav />
 	</div>
