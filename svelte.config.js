@@ -16,6 +16,9 @@ const config = {
 			$m: 'src/paraglide/messages',
 		},
 	},
+	vitePlugin: {
+		inspector: true,
+	},
 }
 
 export default config
