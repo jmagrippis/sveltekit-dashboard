@@ -1,13 +1,14 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte'
 	import Form from '../../Form.svelte'
+	import * as m from '$m'
 
 	export let data
 
 	$: breadcrumbs = [
-		{label: 'Invoices', href: '/dashboard/invoices'},
+		{label: m.invoices(), href: '/dashboard/invoices'},
 		{
-			label: 'Edit Invoice',
+			label: m.editInvoice(),
 			href: `/dashboard/invoices/${data.invoice.id}/edit`,
 			active: true,
 		},

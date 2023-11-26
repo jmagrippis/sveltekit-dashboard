@@ -9,7 +9,7 @@
 </script>
 
 <main>
-	<h1 class="mb-4 font-serif text-xl capitalize md:text-2xl">
+	<h1 class="mb-4 font-serif text-2xl capitalize md:text-2xl">
 		{m.dashboard()}
 	</h1>
 	<DashboardCards cardData={data.streamed.cardData} />

@@ -9,7 +9,7 @@
 </script>
 
 <nav aria-label="Breadcrumb" class="mb-6 block">
-	<ol class="flex font-serif text-xl md:text-2xl">
+	<ol class="flex font-serif text-xl capitalize md:text-2xl">
 		{#each breadcrumbs as breadcrumb, index}
 			<li
 				aria-current={breadcrumb.active}

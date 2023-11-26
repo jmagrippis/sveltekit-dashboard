@@ -1,22 +1,23 @@
 <script lang="ts">
 	import {signOut} from '@auth/sveltekit/client'
 	import {Files, Home, Power, Users2} from 'lucide-svelte'
+	import * as m from '$m'
 	import {page} from '$app/stores'
 	import Avatar from '$lib/components/Avatar.svelte'
 
 	const links = [
 		{
-			label: 'Home',
+			label: m.home(),
 			href: '/dashboard',
 			icon: Home,
 		},
 		{
-			label: 'Invoices',
+			label: m.invoices(),
 			href: '/dashboard/invoices',
 			icon: Files,
 		},
 		{
-			label: 'Customers',
+			label: m.customers(),
 			href: '/dashboard/customers',
 			icon: Users2,
 		},
@@ -29,7 +30,7 @@
 	{#each links as { label, href, icon }}
 		<a
 			aria-label={label}
-			class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium text-black no-underline hover:bg-sky-100 hover:text-primary-600 md:flex-none md:justify-start md:p-2 md:px-3"
+			class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium capitalize text-black no-underline hover:bg-sky-100 hover:text-primary-600 md:flex-none md:justify-start md:p-2 md:px-3"
 			class:active={$page.url.pathname === href}
 			{href}
 		>
@@ -53,10 +54,10 @@
 		}}
 	>
 		<button
-			class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-primary-600 md:flex-none md:justify-start md:p-2 md:px-3"
+			class="flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium capitalize hover:bg-sky-100 hover:text-primary-600 md:flex-none md:justify-start md:p-2 md:px-3"
 		>
 			<Power />
-			<div class="hidden md:block">Sign Out</div></button
+			<div class="hidden md:block">{m.signOut()}</div></button
 		>
 	</form>
 </div>

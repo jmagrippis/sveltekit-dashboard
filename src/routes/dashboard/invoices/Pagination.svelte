@@ -48,7 +48,7 @@
 	>
 		<p class="text-sm text-gray-700">
 			<span class="font-medium">{totalCount}</span>
-			total results
+			{m.totalResults()}
 		</p>
 		<nav
 			class="isolate inline-flex -space-x-px rounded-md shadow-sm"

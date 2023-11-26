@@ -19,7 +19,7 @@
 			href="/dashboard/invoices/create"
 			class="flex h-10 items-center gap-2 rounded-lg bg-primary-600 px-4 text-sm font-medium text-white transition-colors hover:bg-primary-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
 		>
-			<span class="hidden md:block">Create Invoice</span>
+			<span class="hidden capitalize md:block">{m.createInvoice()}</span>
 			<Plus className="h-5 md:ml-4" />
 		</a>
 	</div>
@@ -30,9 +30,9 @@
 		<p class="mt-8 flex flex-col items-center gap-8 text-center text-gray-500">
 			<NoData class="w-32 md:w-64" />
 			{#if $page.url.searchParams.get('query')}
-				No matching invoices!
+				{m.noMatchingInvoices()}
 			{:else}
-				No invoices!
+				{m.noInvoices()}
 			{/if}
 		</p>
 	{/if}
