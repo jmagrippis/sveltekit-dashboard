@@ -12,6 +12,15 @@ See Johnny develop this app [live on his channel](https://www.youtube.com/@johnn
 - [Chapters 6-10, including custom chart with Chart.JS!](https://www.youtube.com/watch?v=jKehybNqzio)
 - [First take on Chapters 11-13, with the Mutations / SvelteKit actions part being successful](https://www.youtube.com/watch?v=sVa3sZvkUUk)
 - [Chapter 11 done well 😅 Search & Pagination!](https://www.youtube.com/watch?v=iu4ngNRLaCI)
+- [Bonus: Internationalization & More!](https://www.youtube.com/watch?v=lggbuAyS8rA)
+
+## i18n / Contributing
+
+The easiest way to contribute to this open source project is to **add a translation for your language**! You may do that with the help of the [inlang editor](https://inlang.com/editor/github.com/jmagrippis/sveltekit-dashboard), and raising a PR!
+
+No need to checkout the project, running the dev server or anything, just use the inlang web UI 😄
+
+But if you do want a more "into the weeds" contribution...
 
 ## Setup
 
