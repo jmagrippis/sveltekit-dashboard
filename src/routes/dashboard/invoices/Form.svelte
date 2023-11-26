@@ -67,7 +67,7 @@
 						step="0.01"
 						min="0"
 						value={invoice?.amount ? invoice.amount / 100 : undefined}
-						placeholder="Enter USD amount"
+						placeholder={m.chooseAmountPlaceholder()}
 						class="peer block w-full rounded-md border border-gray-200 py-2 pl-10 outline-2 placeholder:text-gray-500"
 						required
 					/>

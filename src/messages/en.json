@@ -32,6 +32,7 @@
 	"chooseCustomer": "Choose customer",
 	"selectACustomer": "Select a customer",
 	"chooseAmount": "Choose an amount",
+	"chooseAmountPlaceholder": "Enter USD amount",
 	"setInvoiceStatus": "Set the invoice status",
 	"cancel": "cancel",
 	"edit": "edit",
