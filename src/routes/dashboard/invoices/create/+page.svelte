@@ -1,11 +1,12 @@
 <script lang="ts">
 	import Breadcrumbs from '$lib/components/Breadcrumbs.svelte'
 	import Form from '../Form.svelte'
+	import * as m from '$m'
 
 	const breadcrumbs = [
-		{label: 'Invoices', href: '/dashboard/invoices'},
+		{label: m.invoices(), href: '/dashboard/invoices'},
 		{
-			label: 'Create Invoice',
+			label: m.createInvoice(),
 			href: '/dashboard/invoices/create',
 			active: true,
 		},
@@ -16,5 +17,5 @@
 
 <main>
 	<Breadcrumbs {breadcrumbs} />
-	<Form customers={data.customers} />
+	<Form customers={data.customers} invoice={null} />
 </main>

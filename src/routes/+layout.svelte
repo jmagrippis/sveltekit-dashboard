@@ -8,13 +8,12 @@
 	import {onNavigate} from '$app/navigation'
 	import {page} from '$app/stores'
 	import {setLanguageTag} from '../paraglide/runtime'
-	import {availableLocales, isAvailableLocale} from '$lib/i18n'
-	import {enhance} from '$app/forms'
-	import * as m from '$m'
+
+	import Footer from './Footer.svelte'
 
 	export let data
 
-	setLanguageTag(data.locale)
+	$: setLanguageTag(data.locale)
 
 	onNavigate((navigation) => {
 		if (
@@ -71,42 +70,4 @@
 
 <slot />
 
-<footer class="my-2 flex flex-col items-center gap-2">
-	<div>{m.madeWithLove()}</div>
-	<form
-		method="POST"
-		action="/?/setLang"
-		use:enhance={() => {
-			return async ({result, update}) => {
-				if (result.type === 'success') {
-					if (isAvailableLocale(result.data?.lang)) {
-						setLanguageTag(result.data.lang)
-					}
-				}
-
-				await update({invalidateAll: true})
-
-				location.reload()
-			}
-		}}
-	>
-		<label>
-			{m.currentLanguage()}
-			<select
-				name="lang"
-				class="rounded-md border-0 py-1.5 pl-3 pr-10 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-primary-600"
-				on:change={(event) => {
-					event.currentTarget.form?.requestSubmit()
-				}}
-			>
-				{#each availableLocales as language}
-					<option
-						value={language}
-						selected={language === data.locale ? true : undefined}
-						>{language}</option
-					>
-				{/each}
-			</select>
-		</label>
-	</form>
-</footer>
+<Footer />
