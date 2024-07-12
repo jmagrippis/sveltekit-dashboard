@@ -6,17 +6,15 @@
 
 	export let placeholder: string
 	$: query = $page.url.searchParams.get('query') || ''
-	$: actionPathname = $page.url.pathname
 
 	let timeout: number
-
 	const handleInput: EventHandler<Event, HTMLInputElement> = (event) => {
 		clearTimeout(timeout)
 		const form = event.currentTarget.form
 		if (form) {
 			timeout = setTimeout(() => {
 				form.requestSubmit()
-			}, 300)
+			}, 300) as unknown as number
 		}
 	}
 
@@ -24,7 +22,6 @@
 </script>
 
 <form
-	action={actionPathname}
 	class="relative flex grow"
 	data-sveltekit-keepfocus
 	data-sveltekit-noscroll

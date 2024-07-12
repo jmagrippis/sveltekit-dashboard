@@ -81,6 +81,6 @@ export default defineConfig({
 				command: 'pnpm run dev',
 				url: 'http://localhost:5173',
 				reuseExistingServer: true,
-		  }
+			}
 		: undefined,
 })

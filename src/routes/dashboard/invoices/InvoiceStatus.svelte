@@ -8,8 +8,8 @@
 		status === 'pending'
 			? 'bg-gray-100 text-gray-500'
 			: status === 'paid'
-			  ? 'bg-green-500 text-white'
-			  : ''
+				? 'bg-green-500 text-white'
+				: ''
 </script>
 
 <span
