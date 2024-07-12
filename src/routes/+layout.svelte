@@ -10,6 +10,7 @@
 	import {setLanguageTag} from '../paraglide/runtime'
 
 	import Footer from './Footer.svelte'
+	import {onMount} from 'svelte'
 
 	export let data
 
@@ -43,6 +44,12 @@
 	$: description = $page.data?.metadata?.description
 		? $page.data.metadata.description
 		: defaultMetadata.description
+
+	onMount(() => {
+		// Add data-testid now that our app is hydrated
+		// We have Playwright "wait" for this before starting any test
+		document.documentElement.dataset.testid = 'hydrated'
+	})
 </script>
 
 <svelte:head>

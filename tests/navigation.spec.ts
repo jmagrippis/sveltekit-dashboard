@@ -2,6 +2,7 @@ import {test, expect} from '@playwright/test'
 
 test('guest navigation smoke test', async ({page}) => {
 	await page.goto('/')
+	await expect(page.getByTestId('hydrated')).toBeVisible()
 
 	await expect(page).toHaveTitle(/Acme Dashboard/)
 	await expect(
@@ -19,6 +20,7 @@ test('guest navigation smoke test', async ({page}) => {
 
 test('guest gets redirected to login for protected routes', async ({page}) => {
 	await page.goto('/dashboard')
+	await expect(page.getByTestId('hydrated')).toBeVisible()
 
 	await expect(page).toHaveTitle(/Log in/)
 	await expect(
