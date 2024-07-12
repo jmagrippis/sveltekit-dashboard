@@ -9,17 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
       - name: Install dependencies
         run: npm install -g pnpm && pnpm install
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps
-      - name: Run Playwright tests against ${{ github.event.deployment_status.target_url }}
+      - name: Run Playwright tests against ${{ github.event.deployment_status.environment_url }}
         run: pnpm exec playwright test
         env:
-          PUBLIC_ROOT_URL: ${{ github.event.deployment_status.target_url }}
+          PUBLIC_ROOT_URL: ${{ github.event.deployment_status.environment_url }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
